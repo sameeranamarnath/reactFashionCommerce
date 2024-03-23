@@ -2,16 +2,43 @@
 @import '../../styles/sass/variables';
 
 
-
+// Updated code by Pankaj Kumar
 .header{
     max-width: 100%;
     box-shadow: 5px 5px 20px gray;
     height:200px;
-    
+    display: flex;
   }
   
-  .topnavrow div{
-    display: inline-block;
+  // Commented code by Pankaj Kumar
+  // .topnavrow div{
+  //   display: inline-block;
+  // }
+
+  // Added code by Pankaj Kumar
+  .parent-container{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    padding-left: 40px;
+    color: white;
+
+    .title-text {
+      margin-right: 10px;
+    }
+
+    .cart-icon {
+      display: flex;
+      align-items: center;
+    }
+    .position-relative {
+      position: relative;
+    }
+    .position-absolute {
+      position: absolute;
+      margin-left: 15px;
+      margin-bottom: 5px;
+    }
   }
   
   .brand{
@@ -87,20 +114,19 @@
   .list-icon{
 
   .cart-item-count{
-
-
+    // Updated code by Pankaj Kumar
     border-radius:50%;
     background-color: gold;
-    position:absolute;
-    height:1em;
+    // position:absolute;
+    height: 1em;
     width: 1em;
     left: 83%;
     top:1.8%;
     text-align: center;
-    line-height: 90%;
+    // line-height: 90%;
     p{
-
-        font-size:0.8em;
+      // Updated code by Pankaj Kumar
+        font-size:0.7em;
         font-weight:600;
         color:black;
     }

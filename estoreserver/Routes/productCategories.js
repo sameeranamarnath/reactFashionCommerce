@@ -7,6 +7,9 @@ const sqlite3 = require('sqlite3').verbose();
 
 const db = new sqlite3.Database('./db.sqlite');
 
+productCategories.get("/",(req,res)=>{
+     res.send(" api server running");
+})
 
 productCategories.get("/",(req,res)=>{
 
