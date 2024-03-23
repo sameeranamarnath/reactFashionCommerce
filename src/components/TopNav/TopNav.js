@@ -18,10 +18,36 @@ const TopNav = function()
 //console.log("count",cartItemCount);
     return(
         <div className='header bg-dark'>
-        <div className='topnavrow row'>
-          <div className='brand my-1'>
-            <h1> Coforge Rewards Shop </h1>
+          {/* // Commented code by Pankaj Kumar */}
+        {/* <div className='topnavrow row'> */}
+
+        {/* // Added code by Pankaj Kumar  */}
+        <div className='parent-container'>
+          <div className='title-text'>
+            <h1>Coforge Rewards Shop</h1>
           </div>
+          <div className='cart-icon'>
+            <div className='position-relative'>
+              <Link to="/cart"> 
+                <FontAwesomeIcon icon="fa fa-shopping-cart" style={{color:"white"}}/>
+              </Link>
+            </div>
+            <div className='position-absolute'>
+              <ul className="p-0">
+                <li className="list-icon" >{cartItemCount>0 && <div className='cart-item-count'><p>{cartItemCount}</p></div>}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* // Commented code by Pankaj Kumar  */}
+          {/* <div className='brand my-1'>
+            <h1> Coforge Rewards Shop</h1>
+          </div> */}
+
+
+
+
          {/*
          
           <div className='inp-container p-0 my-4 w-50 h-25 bg-white'>
@@ -42,7 +68,9 @@ const TopNav = function()
               </h5>
           </div>
           */}
-          <div className='cart-wishlist'>
+
+          {/* // Commented code by Pankaj Kumar  */}
+          {/* <div className='cart-wishlist'>
             <ul className="p-0">
  
            
@@ -50,9 +78,10 @@ const TopNav = function()
          
             </ul>
 
-          </div>
-        
-        </div>
+          </div> */}
+
+        {/* </div> */}
+ 
       </div>
 
     )
