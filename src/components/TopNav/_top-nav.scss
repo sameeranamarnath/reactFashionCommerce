@@ -9,7 +9,9 @@
     height:200px;
     
   }
-  
+  .topnavrow{
+    padding-top: 43px;
+  }
   .topnavrow div{
     display: inline-block;
   }
@@ -17,7 +19,7 @@
   .brand{
     color: white;
     margin-left: 2%;
-    padding: 0.8em;
+    padding: 0.8em 0.8em 0.8em 0.8em;
     width: 10%;
     flex:1
   }
@@ -95,8 +97,8 @@
     position:absolute;
     height:1em;
     width: 1em;
-    left: 83%;
-    top:1.8%;
+    left: 94%;
+    top:5.8%;
     text-align: center;
     line-height: 90%;
     p{
