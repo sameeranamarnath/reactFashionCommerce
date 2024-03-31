@@ -8,12 +8,11 @@ import Products from '../ProductsComponent/ProductsComponent'
 function MainComponent() {
 
   //prop drilling + state in the main component =>to manage component usage
-  let [showProducts,setShowProducts] = useState(false);
+  let [showProducts,setShowProducts] = useState(true);
   let [newVar,setNewVar] = useState(0);
   let [cartCount,setCartCount] =useState(0);
   let [numberOfProducts,setNumberOfProducts] = useState(10);
-  //numberOfProducts.initialValue
-  
+  let [assendingOrder, setassendingOrder] =useState(false);
   
 
 
@@ -24,6 +23,7 @@ function MainComponent() {
     console.log("Setting the value of state variable new Var to:",valueOfNewVar);
       setNewVar(valueOfNewVar);
   }
+  
    
   return (
     <div className='container-fluid'>
@@ -33,13 +33,13 @@ function MainComponent() {
     
     <p> value of newVar in main component:{newVar}</p>
     <button onClick={()=>{setShowProducts(!showProducts)}}> Click to show or hide products</button>
-    <SideNav  setNumberOfProducts={setNumberOfProducts} />
+    <SideNav  setNumberOfProducts={setNumberOfProducts} setassendingOrder={setassendingOrder} />
     
 
 
     </div>
     <div className='col-lg-10 col-md-9 col-sm-8'>
-    <Products typeOfProducts={"clothes"} numberOfProducts={numberOfProducts}    showProducts={showProducts} changeMainComponentVariable={setMainComponentVariable}  />
+    <Products typeOfProducts={"clothes"} numberOfProducts={numberOfProducts} assendingOrder = {assendingOrder}   showProducts={showProducts} changeMainComponentVariable={setMainComponentVariable}  />
     </div>
     
 
