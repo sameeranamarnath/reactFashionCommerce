@@ -49,8 +49,9 @@ let divElement= div.createStyledComponent({
     <div  className='row container my-5 product-details-container'>
       
                 <div className='col-5 product-img-container'>
-                     <img src={require('../../assets/images/shop/'+  product.product_img)}/>
+                    {/* <img src={require('../../assets/images/shop/'+  product.product_img)}/> */}
     
+                            <img src={product.product_img} />
     
                 </div>
 

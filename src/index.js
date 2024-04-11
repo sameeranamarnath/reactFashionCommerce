@@ -14,17 +14,34 @@ import { store } from './Redux/store';
 import {BrowserRouter} from "react-router-dom"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-<Provider store={store}>
-  <BrowserRouter>
-        <App />
-        </BrowserRouter>
+async function enableMocking() {
+  
+ 
+  const { worker } = await import('./mocks/mswtest')
+ 
+  // `worker.start()` returns a Promise that resolves
+  // once the Service Worker is up and ready to intercept requests.
+  return worker.start()
+}
+ 
+enableMocking().then(() => {
+  root.render(
+    <React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+          <App />
+          </BrowserRouter>
+  
+      </Provider>
+    </React.StrictMode>
+  );
+  
+})
 
-    </Provider>
-  </React.StrictMode>
-);
 
+/*
+
+*/
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

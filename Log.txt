@@ -258,15 +258,52 @@ Python LRU Cache =>memoization
 
 useCallback=> very similar to useMemo 
 
+<<<<<<< HEAD
+Writing integration tests
+Writing integration tests is actually pretty simple. You should just read off the acceptance criteria (or any English description of the feature), and translate it into JavaScript. To do this, you will need to know a few Selenium functions:
+=======
 difference is 
 resRef=useMemo=> {fn, []}
+>>>>>>> 6838f92e4fc608211131510d9d50cc4740adf84b
 
+<<<<<<< HEAD
+driver.get(url): Open a webpage.
+driver.wait(condition, timeout): Wait for something. It’s typically used to wait for elements while the page is loading.
+driver.findElement/driver.findElements: Find elements on a webpage.
+=======
 funcRef= useCallback {()=>{fn()},[]}  
 useRef => refer to an element in the dom
+>>>>>>> 6838f92e4fc608211131510d9d50cc4740adf84b
 
 useState 
 
+And a few helper functions:
 
+<<<<<<< HEAD
+By: This function is used as an argument to find elements. For example:
+By.id("textInput")
+By.className("wrapper")
+By.xpath("//input")
+driver.findElement(By.tag("div"))
+until: - This function is used as an argument for the wait function. For example:
+until.elementLocated(By.id("submitBtn"))
+until.titleContains("abacaba")
+wait(until.elementLocated(By.name("wrapper")), 1000)
+
+
+
+const greeting = guest => `Hello, ＄{guest}!`;
+
+describe('greeting()', () => { // 1
+  it('says hello', () => { // 2
+    expect(greeting('Jest')).toBe('Hello, Jest!'); // 3
+  });
+
+
+
+
+
+=======
 useMemo=> way of caching expensive results which are repeatedly used in the application 
 useCallback for caching the function rather than the result 
 
@@ -321,3 +358,7 @@ chrome
 safari 
 
 react 18 has batching of events 
+
+
+npm install msw@latest --save-dev 
+npx msw init public 

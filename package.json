@@ -51,6 +51,13 @@
     ]
   },
   "devDependencies": {
-    "jest": "^27.5.1"
+    "cypress": "^13.7.3",
+    "jest": "^27.5.1",
+    "msw": "^2.2.13"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
