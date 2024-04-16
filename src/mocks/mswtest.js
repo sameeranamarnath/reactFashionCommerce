@@ -1010,7 +1010,15 @@ let categoriesJSON=[{"id":1,"category":"Men","parent_category_id":null,"created_
 
 
 // 2. Describe network behavior with request handlers.
+
+//JWT authentication is also possible using mock service worker in a similar way 
+
 export const worker = setupWorker(
+
+
+  
+
+
   http.get(process.env.REACT_APP_API_URL+"/getProducts", ({ request, params, cookies }) => {
     return HttpResponse.text(
       
@@ -1023,6 +1031,7 @@ export const worker = setupWorker(
     )
   }),
 
+ 
   http.get(process.env.REACT_APP_API_URL+"/productcategories", ({ request, params, cookies }) => {
     return HttpResponse.text(
       

@@ -8,17 +8,28 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 //100
 
+/*
+export const getProducts = () => async (dispatch) => {
+  try {
+    //const response = await axios.get('/api/products');
 
 
-export const getProducts= createAsyncThunk(
+    let products= await   fetch(process.env.REACT_APP_API_URL+"/getProducts");
+console.log("products are:"+products)
 
-    "getProducts",
+    dispatch({
+      type: 'GET_PRODUCTS',
+      payload: products.json(),
+    });
+  } catch (error) {
+    console.error('Error fetching products:', error);
+  }
+};
 
-   ()=>{
+*/
 
-    //browser native api=>fetch
 
-    /*
+/*
    promise is the js way of doing async stuff or avoiding callback hell
   
     doingATaskWhichTakes2Mins()
@@ -31,6 +42,16 @@ export const getProducts= createAsyncThunk(
   
 
     */
+
+export const getProducts= createAsyncThunk(
+
+    "getProducts",
+
+   ()=>{
+
+    //browser native api=>fetch
+
+    
   let products=  fetch(process.env.REACT_APP_API_URL+"/getProducts").then(res=>res.json());
 console.log("products are:"+products)
 
@@ -1039,6 +1060,7 @@ let productsJSON=[{"id":1,"product_name":"Veal - Striploin","category_id":4,"pro
       return products;
    }
 );
+
 
 
 

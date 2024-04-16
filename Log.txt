@@ -362,3 +362,33 @@ react 18 has batching of events
 
 npm install msw@latest --save-dev 
 npx msw init public 
+
+
+
+useState useMemo useCallback => variable management 
+prop drilling 
+
+
+Responsive components =>flex, fluid
+percentages< pixels 
+
+Redux , Context 
+
+useRef 
+useRef() => current.whateverJavascriptMethodWeWant 
+
+useEffect =>init or cleanup code 
+
+ never use useState in the component directly 
+ anything which causes a render, dont use in the core component logic 
+ directly, put it in an event handler or in useEffect 
+
+
+
+ jest + react testing library 
+
+
+
+Complete our tdd with api and component testing for the project 
+Routes 
+custom Hooks 

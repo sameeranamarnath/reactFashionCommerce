@@ -106,7 +106,7 @@ return(
 <Link to="/productdetails" state={{product:eachProduct}} >
   
             <div className='product-image-container'>
-                  <img src={require('../../assets/images/shop/'+  eachProduct.product_img)}/> 
+                  <img alt={eachProduct.product_name} src={require('../../assets/images/shop/'+  eachProduct.product_img)}/> 
                 {/* <img src={eachProduct.product_img} /> */}
                  
                  <p> id is: {eachProduct.id}</p>
@@ -132,7 +132,7 @@ return(
                     <div className='cart-icon-container'>
                <FontAwesomeIcon icon="fa fa-shopping-cart" className="mx-4 cart-icon" />
                 </div>
-                <div className='cart-text-container mx-3'>
+                <div data-testid="sdsds" className='cart-text-container mx-3'>
                  <p className=''>Add to Cart </p>
                 </div>
               </div>
