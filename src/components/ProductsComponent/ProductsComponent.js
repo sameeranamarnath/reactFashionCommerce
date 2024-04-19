@@ -8,6 +8,7 @@ import { addCartItem } from '../../Redux/Cart/cartSlice';
 import { Link } from 'react-router-dom';
 import { addItemToProduct } from '../../Redux/Product/productSlice';
 //variable destructuring of props
+
 const Products=({typeOfProducts,showProducts, changeMainComponentVariable,numberOfProducts})=>{
 
 if(typeOfProducts)
@@ -46,6 +47,8 @@ if(showProducts)
 
         console.log("use effect called:"+showProducts);
          dispatch(getProducts());
+
+
 
          
          
@@ -106,8 +109,8 @@ return(
 <Link to="/productdetails" state={{product:eachProduct}} >
   
             <div className='product-image-container'>
-                  <img alt={eachProduct.product_name} src={require('../../assets/images/shop/'+  eachProduct.product_img)}/> 
-                {/* <img src={eachProduct.product_img} /> */}
+                {/*  <img alt={eachProduct.product_name} src={require('../../assets/images/shop/'+  eachProduct.product_img)}/> */}
+                 <img src={eachProduct.product_img} /> 
                  
                  <p> id is: {eachProduct.id}</p>
 

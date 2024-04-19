@@ -6,6 +6,11 @@ const functionLogic = require('./CodeToFail').multipleOf3AndOr5;
 
 
    /*
+
+ Kent Dodds  
+( Testing best practices )
+
+
     1) Is the input a number
     2) multiple of 3 and multiple of 5
     3) multiple of only 3

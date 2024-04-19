@@ -1,11 +1,14 @@
 // src/mocks.js
 // 1. Import the library.
-import { http, HttpResponse } from 'msw'
-import { setupWorker } from 'msw/browser'
+import { http, HttpResponse  } from 'msw'
+import { setupWorker} from 'msw/browser'
+
+// ss
+
+//ffdfdf 
 
 
-
-let productsJSON=[{"id":1,"product_name":"Veal - Striploin","category_id":4,"product_img":"http://dummyimage.com/323x268.png/5fa2dd/ffffff","price":146.35,"created_on":"10/26/2023 00:00:00"},
+let productsJSON=[{"id":1,"product_name":"Violin4 - Striploin","category_id":4,"product_img":"http://dummyimage.com/323x268.png/5fa2dd/ffffff","price":146.35,"created_on":"10/26/2023 00:00:00"},
 {"id":2,"product_name":"Skirt - 24 Foot","category_id":7,"product_img":"http://dummyimage.com/284x263.png/dddddd/000000","price":194.76,"created_on":"10/26/2023 00:00:00"},
 {"id":3,"product_name":"Bread - Raisin Walnut Pull","category_id":2,"product_img":"http://dummyimage.com/287x278.png/dddddd/000000","price":91.52,"created_on":"10/26/2023 00:00:00"},
 {"id":4,"product_name":"Corn Syrup","category_id":6,"product_img":"http://dummyimage.com/284x250.png/5fa2dd/ffffff","price":154.1,"created_on":"10/26/2023 00:00:00"},
@@ -1006,8 +1009,11 @@ let productsJSON=[{"id":1,"product_name":"Veal - Striploin","category_id":4,"pro
 {"id":999,"product_name":"Table Cloth 54x72 Colour","category_id":6,"product_img":"http://dummyimage.com/315x297.png/5fa2dd/ffffff","price":9.78,"created_on":"10/26/2023 00:00:00"},
 {"id":1000,"product_name":"Turkey - Breast, Boneless Sk On","category_id":10,"product_img":"http://dummyimage.com/314x263.png/ff4444/ffffff","price":15.78,"created_on":"10/26/2023 00:00:00"}]
 
-let categoriesJSON=[{"id":1,"category":"Men","parent_category_id":null,"created_on":"2023-10-26  12:55:27"},{"id":2,"category":"Casual Wear","parent_category_id":1,"created_on":"2023-10-26 13:45:53"},{"id":3,"category":"Accessories","parent_category_id":5,"created_on":"2023-10-28 12:39:47"},{"id":4,"category":"Women","parent_category_id":null,"created_on":"2023-10-26 15:48:45"},{"id":5,"category":"Kids","parent_category_id":null,"created_on":"2023-10-26 15:48:45"},{"id":6,"category":"Party wear","parent_category_id":4,"created_on":"2023-10-26 16:50:34"},{"id":7,"category":"Foot wear","parent_category_id":4,"created_on":"2023-10-26 16:50:34"},{"id":8,"category":"Accessories","parent_category_id":4,"created_on":"2023-10-26 16:51:30"}];
+let categoriesJSON=[{"id":1,"category":"Male","parent_category_id":null,"created_on":"2023-10-26  12:55:27"},{"id":2,"category":"Casual Wear","parent_category_id":1,"created_on":"2023-10-26 13:45:53"},{"id":3,"category":"Accessories","parent_category_id":5,"created_on":"2023-10-28 12:39:47"},{"id":4,"category":"Female","parent_category_id":null,"created_on":"2023-10-26 15:48:45"},{"id":5,"category":"Kids","parent_category_id":null,"created_on":"2023-10-26 15:48:45"},{"id":6,"category":"Party wear","parent_category_id":4,"created_on":"2023-10-26 16:50:34"},{"id":7,"category":"Foot wear","parent_category_id":4,"created_on":"2023-10-26 16:50:34"},{"id":8,"category":"Accessories","parent_category_id":4,"created_on":"2023-10-26 16:51:30"}];
 
+
+//tabnine 
+let itemsJSON= [{"value":0},{"value":1},{"value":2},{"value":3},{"value":4},{"value":5},{"value":6}];
 
 // 2. Describe network behavior with request handlers.
 
@@ -1016,6 +1022,18 @@ let categoriesJSON=[{"id":1,"category":"Men","parent_category_id":null,"created_
 export const worker = setupWorker(
 
 
+  
+  http.get(process.env.REACT_APP_API_URL+"/getItems", ({ request, params, cookies }) => {
+    return HttpResponse.text(
+      
+        JSON.stringify(itemsJSON)
+      ,
+      {
+        status: 201,
+        statusText: 'Mocked API of getItems',
+      },
+    )
+  }),
   
 
 
@@ -1047,4 +1065,40 @@ export const worker = setupWorker(
 
 )
 
+
+export const handlers = [
+
+
+  
+
+
+  http.get(process.env.REACT_APP_API_URL+"/getProducts", ({ request, params, cookies }) => {
+  
+  
+    return HttpResponse.text(
+      
+        JSON.stringify(productsJSON)
+      ,
+      {
+        status: 201,
+        statusText: 'Mocked API of getProducts',
+      },
+    )
+  }),
+
+ 
+  http.get(process.env.REACT_APP_API_URL+"/productcategories", ({ request, params, cookies }) => {
+    return HttpResponse.text(
+      
+      
+        JSON.stringify(categoriesJSON)
+      ,
+      {
+        status: 201,
+        statusText: 'Mocked APIof getCategories',
+      },
+    )
+  }),
+
+]
 // 3. Start request interception by starting the Service Worker.

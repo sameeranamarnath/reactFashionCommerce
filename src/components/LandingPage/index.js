@@ -5,7 +5,7 @@ import MainComponent from '../MainComponent/MainComponent';
 const LandingPage = () => {
   return (
 
-
+//todo: assignment: add subroutes for landing page 
     <div>
         <Routes>
 

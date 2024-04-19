@@ -6,6 +6,7 @@ import { getCategories } from '../../Redux/Category/actions'
 import { addItemToProduct, filterByPrice, filterProducts } from '../../Redux/Product/productSlice'
 import CategoriesContext from '../../Context/CategoriesContext'
 import { objectGroup } from 'fontawesome'
+import { Link, useNavigate } from 'react-router-dom'
 const SideNav = ({setNumberOfProducts,showProducts,setShowProducts}) => {
 
     let accordionData= useSelector(state=>state.categoryReducer.categories);
@@ -13,6 +14,18 @@ const SideNav = ({setNumberOfProducts,showProducts,setShowProducts}) => {
     let [products,setProducts] = useState();
     let [stateVar,setStateVar] = useState();
     
+
+    //to be called on on click
+    async function getItems()
+    {
+
+        //code u need to fix 
+        let items =  fetch(process.env.REACT_APP_API_URL+"/getItems").then(res=>res.json());
+console.log("async:items are:"+items);
+
+//set item list here  
+ 
+    }
      //categories,setCategories
     let [minPriceLimit,setMinPriceLimit]= useState(50);
     let [maxPriceLimit,setMaxPriceLimit]= useState(130);
@@ -25,6 +38,13 @@ const SideNav = ({setNumberOfProducts,showProducts,setShowProducts}) => {
     useEffect(()=>{
 
          dispatch(getCategories());
+
+         setTimeout(()=>{
+
+          //  getItems()
+         },10);
+
+         
 
 
     },[]);
@@ -152,6 +172,12 @@ console.log(endTime-startTime);
 //      let buttonRef= useRef();
       //buttonRef.current.
 
+
+let items=[0,1,2,3,4,5,6,7,8,9];
+let [itemList,setItemList] = useState(items);
+
+
+      const navigate =useNavigate();
   return (
 
    
@@ -165,16 +191,21 @@ console.log(endTime-startTime);
         <div className='section-title'>
             <h3>Category</h3>
             <p>{stateVar}</p>
+            <Link to="/cart">Navigate to cart using Link  </Link>
+            <button onClick={()=>{navigate("/cart"); }}>Click to nav to cart via code </button>
+         
             <p>Set number of products: <input type="number" onChange={(e)=>setNumberOfProducts(e.target.value)} />    </p>
             <button   onClick={()=>{setShowProducts(!showProducts)}}> Click to show or hide products</button>
     
-            <button onClick={()=>{setStateVar(20)}}>Click me</button>
+            <button onClick={()=>{ setStateVar(20)}}>Click me</button>
             <button onClick={()=>{setRecompute(!recompute);getMemoisedValue();}}>Click to recompute value with  toggling </button>
             <button onClick={()=>{getMemoisedValue();}}>Click to recompute value without  toggling </button>
             <button onClick={callbackHandler}> Click for callback Handler</button>
             <button onClick={callbackHandler}> Click for callback Handler 2</button>
         
             <p>Memoised value is:{memoisedValue}</p>
+
+             
            
             <button onClick={()=>{dispatch(addItemToProduct({"id":randomIntBetweenInterval(20,100),"product_name":"Torn Tshirt","category_id":7,"product_img":"shop-9.jpg","price":20,"created_on":"2023-10-26 17:02:07"}))}}>Add New Product</button>
             
@@ -182,6 +213,22 @@ console.log(endTime-startTime);
 
 
         <div className='accordion my-3'>
+
+  <button>  Todo for homework! Change items data using api </button>
+
+        <ul>
+
+        {itemList.map((eachData)=>{
+
+           
+              return   <li> {eachData}</li>
+
+          
+       
+        })}
+
+</ul>
+
 
         {accordionData.map((eachData)=>{
 

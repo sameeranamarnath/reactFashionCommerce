@@ -392,3 +392,9 @@ useEffect =>init or cleanup code
 Complete our tdd with api and component testing for the project 
 Routes 
 custom Hooks 
+using components for sending data to a server  => Component based way 
+
+
+do not use third party libraries unless they are  well supported,  standardised and well tested 
+
+

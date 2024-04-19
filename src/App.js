@@ -20,6 +20,7 @@ import MainComponent from './components/MainComponent/MainComponent';
 import LandingPage from './components/LandingPage';
 import ProductDetails from './components/ProductDetails';
 import Cart from './components/Cart';
+import SideNav from './components/SideNav';
 
 
 // import your icons
@@ -80,6 +81,8 @@ function App() {
   
   <Route path="/" element={<LandingPage  />} />
   <Route path="/productdetails" element={<ProductDetails />} />
+  <Route path="/sidenavigation" element={<SideNav />} />
+  
 </Routes>
   </div>
   );
